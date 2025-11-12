@@ -5,14 +5,12 @@ on:
     tags: '**'
   repository_dispatch:
     types: request-build-reference # legacy
-  schedule:
-  - cron: '0 10 * * *' # Once per day at 10am UTC
   workflow_dispatch:
 permissions:
   actions: write
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     if: github.repository_owner == 'spring-projects'
     steps:
     - name: Checkout
